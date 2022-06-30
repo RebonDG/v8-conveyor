@@ -1,5 +1,6 @@
 #!/bin/bash
 # Переменные скрипта
+source config.env
 url_base="https://storage.yandexcloud.net/antonov-distrib/server64_"
 url_version=$(tr '.' '_' <<< ${ONEC_VERSION})
 url="$url_base$url_version.tar.gz"
