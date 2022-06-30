@@ -1,10 +1,9 @@
-FROM ubuntu:20.04
+FROM 1c-server-dependency:latest
 
 # Указываем рабочий каталог
 WORKDIR /opt/1c-server/ 
-# Копируем скрипт деплоя и конфигурационный файл раскладки
+# Копируем скрипт деплоя
 ADD ./deploy.sh ./deploy.sh
-ADD ./selections.conf ./selections.conf
 # Даем права на запуск скрипта
 RUN chmod +x deploy.sh
 # Перемещаем рабочий каталог, так как под конец предыдущий будет удален
