@@ -14,7 +14,7 @@ build conveyor image:
     - changes:
       - conveyor-image/*
   script:
-    - cd conveyor-image && docker-compose up --env-file ./config.env --build --remove-orphans
+    - cd conveyor-image && docker-compose --env-file ./config.env up --build --remove-orphans
 build dependency image (manual):
   tags:
     - 1c-server
@@ -32,4 +32,4 @@ build conveyor image (manual):
       - .gitlab-ci.yml
       when: manual
   script:
-    - cd conveyor-image && docker-compose up --env-file ./config.env --build --remove-orphans
+    - cd conveyor-image && docker-compose --env-file ./config.env up --build --remove-orphans
