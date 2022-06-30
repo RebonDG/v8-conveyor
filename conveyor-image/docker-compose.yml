@@ -3,5 +3,6 @@ version: '2'
 services:
   server:
     build: .
+    image: 1c-server-conveyor:${ONEC_VERSION}
     env_file:
       - config.env

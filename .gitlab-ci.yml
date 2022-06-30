@@ -1,6 +1,35 @@
-build-job:
-  stage: build
+build dependency image:
   tags:
     - 1c-server
+  rules:
+    - changes:
+      - dependency-image/Dockerfile
+      - dependency-image/docker-compose.yml
   script:
-    - docker-compose up --build --remove-orphans
+    - cd dependency-image && docker-compose up --build --remove-orphans
+build conveyor image:
+  tags:
+    - 1c-server
+  rules:
+    - changes:
+      - conveyor-image/*
+  script:
+    - cd conveyor-image && docker-compose --env-file ./config.env up --build --remove-orphans
+build dependency image (manual):
+  tags:
+    - 1c-server
+  rules:
+    - changes:
+      - .gitlab-ci.yml
+      when: manual
+  script:
+    - cd dependency-image && docker-compose up --build --remove-orphans
+build conveyor image (manual):
+  tags:
+    - 1c-server
+  rules:
+    - changes:
+      - .gitlab-ci.yml
+      when: manual
+  script:
+    - cd conveyor-image && docker-compose --env-file ./config.env up --build --remove-orphans
