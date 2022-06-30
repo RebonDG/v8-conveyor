@@ -14,4 +14,4 @@ build conveyor image:
     - changes:
       - conveyor-image/*
   script:
-    - cd conveyor-image && docker-compose up --build --remove-orphans
+    - cd conveyor-image && docker-compose up --env-file config.env --build --remove-orphans
