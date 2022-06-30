@@ -1,0 +1,6 @@
+build-job:
+  stage: build
+  tags:
+    - 1c-server
+  script:
+    - docker-compose up --build --remove-orphans
