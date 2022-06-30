@@ -1,11 +1,11 @@
 stages:
-  - build-dependency
-  - build-conveyor
+  - build dependency
+  - build conveyor
   - test
 
 # AUTORUN
 build dependency image:
-  stage: build-dependency
+  stage: build dependency
   tags:
     - 1c-server
   rules:
@@ -15,7 +15,7 @@ build dependency image:
   script:
     - cd dependency-image && docker-compose up --build --remove-orphans
 build conveyor image:
-  stage: build-conveyor
+  stage: build conveyor
   tags:
     - 1c-server
   rules:
@@ -34,7 +34,7 @@ build test image:
     - cd generator/test-dockerfile && docker-compose up --build --remove-orphans
 # MANUAL RUN
 build dependency image (manual):
-  stage: build-dependency
+  stage: build dependency
   tags:
     - 1c-server
   rules:
@@ -45,7 +45,7 @@ build dependency image (manual):
   script:
     - cd dependency-image && docker-compose up --build --remove-orphans
 build conveyor image (manual):
-  stage: build-conveyor
+  stage: build conveyor
   tags:
     - 1c-server
   rules:
