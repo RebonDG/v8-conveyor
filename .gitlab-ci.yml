@@ -1,6 +1,9 @@
-build-job:
-  stage: build
+build dependency image:
   tags:
     - 1c-server
+  rules:
+    - if: $CI_COMMIT_BRANCH <> "master"
+    - changes:
+      - dependency-image/Dockerfile
   script:
-    - docker-compose up --build --remove-orphans
+    - cd dependency-image && docker-compose up --build --remove-orphans
