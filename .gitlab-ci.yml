@@ -22,6 +22,7 @@ build dependency image (manual):
     - changes:
       - .gitlab-ci.yml
       when: manual
+      allow_failure: true
   script:
     - cd dependency-image && docker-compose up --build --remove-orphans
 build conveyor image (manual):
@@ -31,5 +32,6 @@ build conveyor image (manual):
     - changes:
       - .gitlab-ci.yml
       when: manual
+      allow_failure: true
   script:
     - cd conveyor-image && docker-compose --env-file ./config.env up --build --remove-orphans
