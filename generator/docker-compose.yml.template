@@ -1,6 +1,6 @@
 version: '2'
 
 services:
-  dependency:
+  server:
     build: .
     image: 1c-server-main:${ONEC_VERSION}
