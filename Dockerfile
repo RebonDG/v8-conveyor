@@ -10,4 +10,4 @@ RUN chmod +x deploy.sh
 # Перемещаем рабочий каталог, так как под конец предыдущий будет удален
 WORKDIR /opt
 # Запускаем скрипт
-ENTRYPOINT ["./1c-server/deploy.sh"]
+ENTRYPOINT ["/opt/1c-server/deploy.sh"]
