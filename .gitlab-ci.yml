@@ -1,5 +1,11 @@
+stages:
+  - build-dependency
+  - build-conveyor
+  - test
+
 # AUTORUN
 build dependency image:
+  stage: build-dependency
   tags:
     - 1c-server
   rules:
@@ -9,6 +15,7 @@ build dependency image:
   script:
     - cd dependency-image && docker-compose up --build --remove-orphans
 build conveyor image:
+  stage: build-conveyor
   tags:
     - 1c-server
   rules:
@@ -17,6 +24,7 @@ build conveyor image:
   script:
     - cd conveyor-image && docker-compose --env-file ./config.env up --build --remove-orphans
 build test image:
+  stage: test
   tags:
     - 1c-server
   rules:
@@ -26,6 +34,7 @@ build test image:
     - cd generator/test-dockerfile && docker-compose up --build --remove-orphans
 # MANUAL RUN
 build dependency image (manual):
+  stage: build-dependency
   tags:
     - 1c-server
   rules:
@@ -36,6 +45,7 @@ build dependency image (manual):
   script:
     - cd dependency-image && docker-compose up --build --remove-orphans
 build conveyor image (manual):
+  stage: build-conveyor
   tags:
     - 1c-server
   rules:
@@ -46,6 +56,7 @@ build conveyor image (manual):
   script:
     - cd conveyor-image && docker-compose --env-file ./config.env up --build --remove-orphans
 build test image (manual):
+  stage: test
   tags:
     - 1c-server
   rules:
