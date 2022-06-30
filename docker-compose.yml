@@ -1,0 +1,7 @@
+version: '2'
+
+services:
+  server:
+    build: .
+    env_file:
+      - config.env
