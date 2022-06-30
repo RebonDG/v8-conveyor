@@ -19,3 +19,4 @@ if [ ! -d "out/${version}" ]; then mkdir out/$version; fi
 
 ONEC_VERSION=$version envsubst < docker-compose.yml.template >> ./out/$version/docker-compose.yml;
 ONEC_VERSION=$version envsubst < Dockerfile.template >> ./out/$version/Dockerfile;
+cp start.sh out/$version/;
