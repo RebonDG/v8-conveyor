@@ -14,8 +14,8 @@ if [ $OPTIND -eq 1 ]; then
     exit 1;
 fi
 
-if [ ! -d "./out" ]; then mkdir ./out fi
-if [ ! -d "./out/$version"]; then mkdir ./out/$version fi
+if [ ! -d "./out" ]; then mkdir ./out; fi
+if [ ! -d "./out/$version"]; then mkdir ./out/$version; fi
 
-ONEC_VERSION=$version envsubst < docker-compose.yml.template >> ./out/$version/docker-compose.yml
-ONEC_VERSION=$version envsubst < Dockerfile.template >> ./out/$version/Dockerfile
+ONEC_VERSION=$version envsubst < docker-compose.yml.template >> ./out/$version/docker-compose.yml;
+ONEC_VERSION=$version envsubst < Dockerfile.template >> ./out/$version/Dockerfile;
