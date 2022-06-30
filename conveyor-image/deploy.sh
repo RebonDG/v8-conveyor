@@ -17,6 +17,4 @@ echo "Конец установки 1С"
 # Чистим лишнее
 cd /opt/1cv8
 rm -rf /opt/1c-server/
-apt-get autoclean
-apt-get clean
-apt-get autoremove
+apt-get autoclean clean autoremove
