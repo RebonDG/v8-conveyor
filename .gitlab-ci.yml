@@ -2,7 +2,6 @@ build dependency image:
   tags:
     - 1c-server
   rules:
-    - if: $CI_COMMIT_BRANCH != "master"
     - changes:
       - dependency-image/Dockerfile
       - dependency-image/docker-compose.yml
@@ -12,7 +11,6 @@ build conveyor image:
   tags:
     - 1c-server
   rules:
-    - if: $CI_COMMIT_BRANCH != "master"
     - changes:
       - conveyor-image/*
   script:
