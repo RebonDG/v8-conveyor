@@ -4,7 +4,7 @@ FROM ubuntu:20.04
 WORKDIR /opt/1c-server/
 ADD ./selections.conf ./selections.conf
 # Устанавливаем первый пакет зависимостей
-RUN apt-get update && apt-get install -yq tzdata debconf-utils curl fontconfig unixodbc ttf-mscorefonts-installer libgsf-1-114
+RUN apt-get update && apt-get install -yq tzdata debconf-utils curl fontconfig unixodbc ttf-mscorefonts-installer libgsf-1-114 keyboard-configuration
 # Настраиваем временную зону и раскладку клавиатуры (иначе повиснем на процессе установки)
 RUN ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime && debconf-set-selections < selections.conf
 RUN dpkg-reconfigure -f noninteractive tzdata
