@@ -2,7 +2,7 @@ build dependency image:
   tags:
     - 1c-server
   rules:
-    - if: $CI_COMMIT_BRANCH <> "master"
+    - if: $CI_COMMIT_BRANCH != "master"
     - changes:
       - dependency-image/Dockerfile
   script:
