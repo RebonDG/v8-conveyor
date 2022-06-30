@@ -7,7 +7,8 @@ ADD ./selections.conf ./selections.conf
 RUN apt-get update && apt-get install -yq tzdata debconf-utils curl fontconfig unixodbc ttf-mscorefonts-installer libgsf-1-114
 # Настраиваем временную зону и раскладку клавиатуры (иначе повиснем на процессе установки)
 RUN ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime && debconf-set-selections < selections.conf
-RUN dpkg-reconfigure -f noninteractive tzdata keyboard-configuration
+RUN dpkg-reconfigure -f noninteractive tzdata
+RUN dpkg-reconfigure -f noninteractive keyboard-configuration
 # Устанавливаем оставшиеся зависимости
 RUN apt-get install -yq geoclue-2.0 gstreamer1.0-plugins-bad
 # Правим локаль на русскую
