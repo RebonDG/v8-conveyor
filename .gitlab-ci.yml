@@ -1,3 +1,4 @@
+# AUTORUN
 build dependency image:
   tags:
     - 1c-server
@@ -15,6 +16,15 @@ build conveyor image:
       - conveyor-image/*
   script:
     - cd conveyor-image && docker-compose --env-file ./config.env up --build --remove-orphans
+build conveyor image:
+  tags:
+    - 1c-server
+  rules:
+    - changes:
+      - generator/test-dockerfile/*
+  script:
+    - cd generator/test-dockerfile && docker-compose up --build --remove-orphans
+# MANUAL RUN
 build dependency image (manual):
   tags:
     - 1c-server
@@ -35,3 +45,13 @@ build conveyor image (manual):
       allow_failure: true
   script:
     - cd conveyor-image && docker-compose --env-file ./config.env up --build --remove-orphans
+build conveyor  (manual):
+  tags:
+    - 1c-server
+  rules:
+    - changes:
+      - .gitlab-ci.yml
+      when: manual
+      allow_failure: true
+  script:
+    - cd generator/test-dockerfile && docker-compose up --build --remove-orphans
