@@ -16,7 +16,7 @@ build conveyor image:
       - conveyor-image/*
   script:
     - cd conveyor-image && docker-compose --env-file ./config.env up --build --remove-orphans
-build conveyor image:
+build test image:
   tags:
     - 1c-server
   rules:
@@ -45,7 +45,7 @@ build conveyor image (manual):
       allow_failure: true
   script:
     - cd conveyor-image && docker-compose --env-file ./config.env up --build --remove-orphans
-build conveyor  (manual):
+build test image (manual):
   tags:
     - 1c-server
   rules:
