@@ -14,4 +14,5 @@ ENV SRV1CV8_PINGTIMEOUT=5000
 
 WORKDIR /opt/1cv8
 ADD ./start.sh ./docker-start.sh
+RUN chmod +x ./docker-start.sh
 ENTRYPOINT [ "./docker-start.sh" ]
